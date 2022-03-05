@@ -1,14 +1,22 @@
 // our-domain.com/new-meetup
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
 import NewMeetupForm from '../../components/meetups/NewMeetupForm';
+import NotificationContext from '../../store/notification-context';
 
 const NewMeetupPage = () => {
     const router = useRouter();
+    const notificationCtx = useContext(NotificationContext);
+    const showNotif = notificationCtx.showNotification;
 
     const addMeetupHandler = async (enteredMeetupData) => {
+        showNotif({
+            title: 'Pending...',
+            message: 'Sending your data',
+            status: 'pending'
+        });
         console.log(enteredMeetupData);
 
         const resp = await fetch('/api/new-meetup', {
@@ -19,9 +27,22 @@ const NewMeetupPage = () => {
             }
         });
         const data = await resp.json();
-        console.log(data);
 
-        router.push('/');
+        if (resp.ok) {
+            showNotif({
+                title: 'Success!',
+                message: 'Data sent successfully!',
+                status: 'success'
+            });
+            console.log(data);
+            router.push('/');
+        } else {
+            showNotif({
+                title: 'Error!',
+                message: data.message || 'Data sent successfully!',
+                status: 'error'
+            });
+        }
     }
 
     return (
