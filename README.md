@@ -54,6 +54,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Dependencies
 [![react](https://img.shields.io/github/package-json/dependency-version/KenTandrian/nextmeetup-app/react)](https://www.npmjs.com/package/react)
 [![next](https://img.shields.io/github/package-json/dependency-version/KenTandrian/nextmeetup-app/next)](https://www.npmjs.com/package/next)
+[![next](https://img.shields.io/github/package-json/dependency-version/KenTandrian/nextmeetup-app/mongodb)](https://www.npmjs.com/package/mongodb)
 
 [Go to List of Dependencies](https://github.com/KenTandrian/nextmeetup-app/network/dependencies)
 
