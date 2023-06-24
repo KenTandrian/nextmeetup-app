@@ -1,8 +1,9 @@
 // /api/new-meetup
-// import { MongoClient } from "mongodb";
-import { connectToDatabase } from "../../lib/db-util";
+import { MongoClient } from "mongodb";
+import { connectToDatabase } from "@/lib/db-util";
+import { NextApiRequest, NextApiResponse } from "next";
 
-const handler = async (req, res) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method !== 'POST') {
         res.status(405).json({ message: 'Method not Allowed!' });
         return;
@@ -17,7 +18,7 @@ const handler = async (req, res) => {
     }
 
     // Connect to MongoDB
-    let client;
+    let client: MongoClient;
     try {
         client = await connectToDatabase();
     } catch (err) {

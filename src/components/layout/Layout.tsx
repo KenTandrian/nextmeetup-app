@@ -4,7 +4,7 @@ import MainNavigation from './MainNavigation';
 import Notification from '../ui/Notification';
 
 import classes from './Layout.module.css';
-import NotificationContext from '../../store/notification-context';
+import NotificationContext from '@/store/notification-context';
 
 function Layout(props) {
   const notifCtx = useContext(NotificationContext);

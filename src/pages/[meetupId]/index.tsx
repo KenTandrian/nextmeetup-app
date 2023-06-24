@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import { ObjectId } from "mongodb";
 import Head from "next/head";
 
-import MeetupDetail from "../../components/meetups/MeetupDetail";
-import { connectToDatabase } from "../../lib/db-util";
+import MeetupDetail from "@/components/meetups/MeetupDetail";
+import { connectToDatabase } from "@/lib/db-util";
+import { GetStaticPropsContext } from "next";
 
 // const DUMMY_MEETUP = {
 //     id: 'm2',
@@ -27,8 +28,8 @@ const MeetupDetails = (props) => {
     )
 }
 
-export const getStaticProps = async (context) => {
-    const meetupId = context.params.meetupId;
+export const getStaticProps = async (context: GetStaticPropsContext) => {
+    const meetupId = context.params.meetupId as string;
 
     const client = await connectToDatabase();
     const db = client.db();

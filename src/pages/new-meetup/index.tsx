@@ -3,8 +3,8 @@ import React, { Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-import NewMeetupForm from '../../components/meetups/NewMeetupForm';
-import NotificationContext from '../../store/notification-context';
+import NewMeetupForm from '@/components/meetups/NewMeetupForm';
+import NotificationContext from '@/store/notification-context';
 
 const NewMeetupPage = () => {
     const router = useRouter();

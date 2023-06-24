@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
 
-import MeetupList from '../components/meetups/MeetupList';
-import { connectToDatabase } from "../lib/db-util";
+import MeetupList from '@/components/meetups/MeetupList';
+import { connectToDatabase } from "@/lib/db-util";
 
 const HomePage = (props) => {
     const loadedMeetups = props.meetups;
