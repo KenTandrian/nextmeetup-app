@@ -34,8 +34,7 @@ export const getStaticProps = async (context) => {
     const db = client.db();
     const meetupsCollection = db.collection('meetups');
 
-    const selectedMeetup = await meetupsCollection.findOne({ _id: ObjectId(meetupId) });
-    // console.log(selectedMeetup);
+    const selectedMeetup = await meetupsCollection.findOne({ _id: new ObjectId(meetupId) });
     client.close();
 
     return {
