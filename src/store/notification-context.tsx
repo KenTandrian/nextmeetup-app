@@ -9,15 +9,17 @@ const NotificationContext = createContext({
 
 // MAKE CONTEXT PROVIDER (MyProvider.js)
 export const NotificationContextProvider = (props) => {
-    const [activeNotif, setActiveNotif] = useState();
+    const [activeNotif, setActiveNotif] = useState<{
+        status: 'error' | 'success'
+    }>();
 
     useEffect(() => {
+        let timer: NodeJS.Timeout;
         if (activeNotif && (activeNotif.status === 'error' || activeNotif.status === 'success')){
-            const timer = setTimeout(() => {
+            timer = setTimeout(() => {
                 setActiveNotif(null);
             }, 5000);
         }
-
         return () => clearTimeout(timer);
     }, [activeNotif])
 
