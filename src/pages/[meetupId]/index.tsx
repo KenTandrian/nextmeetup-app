@@ -40,11 +40,11 @@ export const getStaticProps = async (context) => {
     return {
         props: {
             meetupData: {
-                id: selectedMeetup._id.toString(),
-                title: selectedMeetup.title,
-                address: selectedMeetup.address,
-                image: selectedMeetup.image,
-                description: selectedMeetup.description
+                id: selectedMeetup?._id.toString(),
+                title: selectedMeetup?.title,
+                address: selectedMeetup?.address,
+                image: selectedMeetup?.image,
+                description: selectedMeetup?.description
             }
         }
     }
@@ -55,7 +55,7 @@ export const getStaticPaths = async () => {
     const db = client.db();
     const meetupsCollection = db.collection('meetups');
 
-    const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray(); // Only fetch ID
+    const meetups = await meetupsCollection.find({}, { projection: { _id: 1 } }).toArray(); // Only fetch ID
     client.close()
 
     return {
