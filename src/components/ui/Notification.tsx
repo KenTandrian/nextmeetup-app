@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import classes from './Notification.module.css';
 import NotificationContext from '@/store/notification-context';
 
-function Notification(props) {
+function Notification(props: INotification) {
   const notificationCtx = useContext(NotificationContext);
 
   const { title, message, status } = props;
