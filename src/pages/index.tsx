@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
+import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
 import MeetupList from '@/components/meetups/MeetupList';
 import { connectToDatabase } from "@/lib/db-util";
 
-const HomePage = (props) => {
+const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
     const loadedMeetups = props.meetups;
 
     return (
@@ -29,7 +30,7 @@ const HomePage = (props) => {
 //     };
 // }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async () => {
     // Fetch data from an API
     const client = await connectToDatabase();
     const db = client.db();

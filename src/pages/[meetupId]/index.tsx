@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
+import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { ObjectId } from "mongodb";
 import Head from "next/head";
 
 import MeetupDetail from "@/components/meetups/MeetupDetail";
 import { connectToDatabase } from "@/lib/db-util";
-import { GetStaticPropsContext } from "next";
 
 // const DUMMY_MEETUP = {
 //     id: 'm2',
@@ -14,7 +14,7 @@ import { GetStaticPropsContext } from "next";
 //     description: 'This is a second meetup!'
 // }
 
-const MeetupDetails = (props) => {
+const MeetupDetails = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
     const meetupData = props.meetupData;
     
     return (
