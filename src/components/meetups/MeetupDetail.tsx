@@ -3,7 +3,7 @@ import React from "react";
 
 import classes from './MeetupDetail.module.css';
 
-const MeetupDetail = (props) => {
+const MeetupDetail = (props: IMeetup) => {
     // DESTRUCTURING
     const { image, title, address, description } = props;
 
