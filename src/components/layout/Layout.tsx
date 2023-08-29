@@ -6,7 +6,7 @@ import Notification from '../ui/Notification';
 import classes from './Layout.module.css';
 import NotificationContext from '@/store/notification-context';
 
-function Layout(props) {
+function Layout(props: { children?: React.ReactNode }) {
   const notifCtx = useContext(NotificationContext);
   const activeNotification: any = notifCtx.notification;
 
