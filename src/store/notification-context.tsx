@@ -2,16 +2,14 @@ import React, { createContext, useState, useEffect } from "react";
 
 // INITIAL CONTEXT (MyContext.js)
 const NotificationContext = createContext({
-    notification: null,
-    showNotification: (notifData) => {},
+    notification: null as INotification,
+    showNotification: (notifData: INotification) => {},
     hideNotification: () => {}
 });
 
 // MAKE CONTEXT PROVIDER (MyProvider.js)
-export const NotificationContextProvider = (props) => {
-    const [activeNotif, setActiveNotif] = useState<{
-        status: 'error' | 'success'
-    }>();
+export const NotificationContextProvider = (props: { children?: React.ReactNode }) => {
+    const [activeNotif, setActiveNotif] = useState<INotification>();
 
     useEffect(() => {
         let timer: NodeJS.Timeout;
@@ -23,7 +21,7 @@ export const NotificationContextProvider = (props) => {
         return () => clearTimeout(timer);
     }, [activeNotif])
 
-    const showNotifHandler = (notifData) => {
+    const showNotifHandler = (notifData: INotification) => {
         setActiveNotif(notifData);
     }
 
