@@ -11,7 +11,7 @@ const NewMeetupPage = () => {
     const notificationCtx = useContext(NotificationContext);
     const showNotif = notificationCtx.showNotification;
 
-    const addMeetupHandler = async (enteredMeetupData) => {
+    const addMeetupHandler = async (enteredMeetupData: Omit<IMeetup, "id">) => {
         showNotif({
             title: 'Pending...',
             message: 'Sending your data',

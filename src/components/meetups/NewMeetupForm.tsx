@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import Card from '../ui/Card';
 import classes from './NewMeetupForm.module.css';
 
-function NewMeetupForm(props) {
+function NewMeetupForm(props: { onAddMeetup: (enteredMeetupData: Omit<IMeetup, "id">) => void }) {
   const titleInputRef = useRef<HTMLInputElement>();
   const imageInputRef = useRef<HTMLInputElement>();
   const addressInputRef = useRef<HTMLInputElement>();
