@@ -1,9 +1,9 @@
 // /api/new-meetup
 import { MongoClient } from "mongodb";
+import { NextApiHandler } from "next";
 import { connectToDatabase } from "@/lib/db-util";
-import { NextApiRequest, NextApiResponse } from "next";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler: NextApiHandler = async (req, res) => {
     if (req.method !== 'POST') {
         res.status(405).json({ message: 'Method not Allowed!' });
         return;
