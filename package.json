@@ -16,7 +16,7 @@
     "sharp": "0.32.6"
   },
   "devDependencies": {
-    "@types/react": "18.2.21",
+    "@types/react": "18.2.23",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19"
   }
