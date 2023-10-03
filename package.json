@@ -1,6 +1,6 @@
 {
   "name": "next-meetup",
-  "version": "0.1.84",
+  "version": "0.1.89",
   "private": true,
   "scripts": {
     "dev": "next dev",
