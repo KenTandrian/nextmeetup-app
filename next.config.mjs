@@ -1,10 +1,10 @@
+// @ts-check
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
         domains: ['upload.wikimedia.org'],
     },
-    reactStrictMode: true,
-    swcMinify: true,
 }
 
-module.exports = nextConfig;
+export default nextConfig;
